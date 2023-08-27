@@ -20,6 +20,16 @@ const btnMultiply = document.querySelector('#btn-multiply');
 const btnSubtract = document.querySelector('#btn-subtract');
 const btnAdd = document.querySelector('#btn-add');
 const btnEquals = document.querySelector('#btn-equals');
+const display = document.querySelector('#display');
+const container = document.querySelector('#container');
+
+let displayValue = container.addEventListener('click', (e) => {
+  const button = e.target;
+  if (button.id == 'btn-equals'
+    || button.id == 'btn-clear'
+    || button.id == 'btn-backspace') return;
+  display.textContent += button.textContent;
+});
 
 function operate(num1, operator, num2) {
   switch (operator) {
