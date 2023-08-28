@@ -4,12 +4,14 @@ let num2 = 0;
 
 const display = document.querySelector('#display');
 const container = document.querySelector('#container');
+let equation = '';
 
 container.addEventListener('click', (e) => {
   if (e.target.id == 'btn-equals'
     || e.target.id == 'btn-clear'
     || e.target.id == 'btn-backspace') return;
-  display.textContent += e.target.id.textContent;
+  equation += e.target.textContent;
+  display.textContent += e.target.textContent;
 });
 
 container.addEventListener('click', (e) => {
