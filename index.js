@@ -31,6 +31,19 @@ let displayValue = container.addEventListener('click', (e) => {
   display.textContent += button.textContent;
 });
 
+container.addEventListener('click', (e) => {
+  if (e.target.id == 'btn-clear') {
+    display.textContent = '';
+  }
+});
+
+container.addEventListener('click', (e) => {
+  if (e.target.id == 'btn-backspace') {
+    let newDisplay = display.textContent.slice(0, display.textContent.length - 1);
+    display.textContent = newDisplay;
+  }
+});
+
 function operate(num1, operator, num2) {
   switch (operator) {
     case '+':
