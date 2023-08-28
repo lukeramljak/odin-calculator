@@ -4,27 +4,25 @@ let num2 = 0;
 
 const display = document.querySelector('#display');
 const container = document.querySelector('#container');
+const btn = document.querySelector('.btn');
+const buttons = Array.from(document.getElementsByClassName('btn'));
 let equation = '';
 
-container.addEventListener('click', (e) => {
-  if (e.target.id == 'btn-equals'
-    || e.target.id == 'btn-clear'
-    || e.target.id == 'btn-backspace') return;
-  equation += e.target.textContent;
-  display.textContent += e.target.textContent;
-});
-
-container.addEventListener('click', (e) => {
-  if (e.target.id == 'btn-clear') {
-    display.textContent = '';
-  }
-});
-
-container.addEventListener('click', (e) => {
-  if (e.target.id == 'btn-backspace') {
-    let newDisplay = display.textContent.slice(0, display.textContent.length - 1);
-    display.textContent = newDisplay;
-  }
+buttons.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    switch (e.target.id) {
+      case 'btn-clear':
+        display.textContent = '';
+        break;
+      case 'btn-backspace':
+        let newDisplay = display.textContent.slice(0, display.textContent.length - 1);
+        display.textContent = newDisplay;
+        break;
+      default:
+        equation += e.target.textContent;
+        display.textContent += e.target.textContent;
+    }
+  });
 });
 
 function add(a, b) {
