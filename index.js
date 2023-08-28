@@ -23,11 +23,10 @@ const btnEquals = document.querySelector('#btn-equals');
 const display = document.querySelector('#display');
 const container = document.querySelector('#container');
 
-let displayValue = container.addEventListener('click', (e) => {
-  const button = e.target;
-  if (button.id == 'btn-equals'
-    || button.id == 'btn-clear'
-    || button.id == 'btn-backspace') return;
+container.addEventListener('click', (e) => {
+  if (e.target.id == 'btn-equals'
+    || e.target.id == 'btn-clear'
+    || e.target.id == 'btn-backspace') return;
   display.textContent += button.textContent;
 });
 
