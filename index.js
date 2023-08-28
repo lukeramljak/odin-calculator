@@ -4,8 +4,8 @@ const buttons = Array.from(document.getElementsByClassName('btn'));
 let equation = '';
 
 buttons.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    switch (e.target.id) {
+  btn.addEventListener('click', () => {
+    switch (btn.id) {
       case 'btn-clear':
         display.textContent = '';
         break;
@@ -14,8 +14,8 @@ buttons.forEach(btn => {
         display.textContent = newDisplay;
         break;
       default:
-        equation += e.target.textContent;
-        display.textContent += e.target.textContent;
+        equation += btn.textContent;
+        display.textContent += btn.textContent;
     }
   });
 });
