@@ -1,10 +1,5 @@
-let num1 = 0;
-let operator = '';
-let num2 = 0;
-
 const display = document.querySelector('#display');
 const container = document.querySelector('#container');
-const btn = document.querySelector('.btn');
 const buttons = Array.from(document.getElementsByClassName('btn'));
 let equation = '';
 
@@ -15,7 +10,7 @@ buttons.forEach(btn => {
         display.textContent = '';
         break;
       case 'btn-backspace':
-        let newDisplay = display.textContent.slice(0, display.textContent.length - 1);
+        const newDisplay = display.textContent.slice(0, display.textContent.length - 1);
         display.textContent = newDisplay;
         break;
       default:
