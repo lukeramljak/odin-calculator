@@ -25,6 +25,22 @@ container.addEventListener('click', (e) => {
   }
 });
 
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+
+function multiply(a, b) {
+  return a * b;
+}
+
+function divide(a, b) {
+  return a / b;
+}
+
 function operate(num1, operator, num2) {
   switch (operator) {
     case '+':
@@ -42,18 +58,3 @@ function operate(num1, operator, num2) {
   }
 }
 
-function add(a, b) {
-  return a + b;
-}
-
-function subtract(a, b) {
-  return a - b;
-}
-
-function multiply(a, b) {
-  return a * b;
-}
-
-function divide(a, b) {
-  return a / b;
-}
