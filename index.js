@@ -9,7 +9,7 @@ container.addEventListener('click', (e) => {
   if (e.target.id == 'btn-equals'
     || e.target.id == 'btn-clear'
     || e.target.id == 'btn-backspace') return;
-  display.textContent += button.textContent;
+  display.textContent += e.target.id.textContent;
 });
 
 container.addEventListener('click', (e) => {
