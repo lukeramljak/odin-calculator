@@ -14,6 +14,12 @@ buttons.forEach(btn => {
         const newDisplay = display.textContent.slice(0, display.textContent.length - 1);
         display.textContent = newDisplay;
         break;
+      case '+':
+      case '-':
+      case '*':
+      case '/':
+        equation += btn.dataset.key;
+        break;
       case '=':
         const [num1, operator, num2] = splitEquation(equation);
         const sum = operate(num1, operator, num2);
@@ -22,7 +28,7 @@ buttons.forEach(btn => {
         break;
       default:
         equation += btn.dataset.key;
-        display.textContent += btn.textContent;
+        display.textContent = btn.textContent;
     }
   });
 });
