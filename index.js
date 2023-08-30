@@ -13,43 +13,34 @@ buttons.forEach(btn => {
         const newDisplay = display.textContent.slice(0, display.textContent.length - 1);
         display.textContent = newDisplay;
         break;
+      case 'btn-equals':
+        let sum = splitEquation(equation);
+      // display.textContent = sum;;
       default:
-        equation += btn.textContent;
-        display.textContent += btn.textContent;
+        // TODO: undo the space, as it doesn't work for multi digit numbers
+        equation += btn.textContent + ' ';
+        display.textContent += btn.textContent + ' ';
     }
   });
 });
 
-function add(a, b) {
-  return a + b;
-}
-
-function subtract(a, b) {
-  return a - b;
-}
-
-function multiply(a, b) {
-  return a * b;
-}
-
-function divide(a, b) {
-  return a / b;
+function splitEquation(str) {
+  // TODO: this will no longer work when the space is removed
+  let [num1, operator, num2] = str.split('');
+  let sum = operate(num1, operator, num2);
+  return sum;
 }
 
 function operate(num1, operator, num2) {
   switch (operator) {
     case '+':
-      add(num1, num2);
-      break;
+      return Number(num1) + Number(num2);
     case '-':
-      subtract(num1, num2);
-      break;
-    case '*':
-      multiply(num1, num2);
-      break;
-    case '/':
-      divide(num1, num2);
-      break;
+      return num1 - num2;
+    case 'x':
+      return num1 * num2;
+    case '÷':
+      return num1 / num2;
   }
 }
 
