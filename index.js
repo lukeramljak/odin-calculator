@@ -5,42 +5,58 @@ let equation = '';
 
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {
-    switch (btn.id) {
-      case 'btn-clear':
+    switch (btn.dataset.key) {
+      case 'clear':
         display.textContent = '';
         break;
-      case 'btn-backspace':
+      case 'backspace':
         const newDisplay = display.textContent.slice(0, display.textContent.length - 1);
         display.textContent = newDisplay;
         break;
-      case 'btn-equals':
+      case '=':
         let sum = splitEquation(equation);
-      // display.textContent = sum;;
+        display.textContent = sum;
+        equation = '';
+        break;
       default:
-        // TODO: undo the space, as it doesn't work for multi digit numbers
-        equation += btn.textContent + ' ';
-        display.textContent += btn.textContent + ' ';
+        equation += btn.dataset.key;
+        display.textContent += btn.textContent;
     }
   });
 });
 
 function splitEquation(str) {
-  // TODO: this will no longer work when the space is removed
-  let [num1, operator, num2] = str.split('');
-  let sum = operate(num1, operator, num2);
-  return sum;
+  const operators = '+-*/';
+
+  for (let i = 0; i < str.length; i++) {
+    if (operators.includes(str[i])) {
+      const num1 = str.slice(0, i).trim();
+      const operator = str[i];
+      const num2 = str.slice(i + 1).trim();
+
+      const result = operate(num1, operator, num2);
+      return result;
+    }
+  }
+
+  return 'Error';
 }
 
 function operate(num1, operator, num2) {
+  num1 = parseFloat(num1);
+  num2 = parseFloat(num2);
+
   switch (operator) {
     case '+':
-      return Number(num1) + Number(num2);
+      return num1 + num2;
     case '-':
       return num1 - num2;
-    case 'x':
+    case '*':
       return num1 * num2;
-    case '÷':
+    case '/':
       return num1 / num2;
+    default:
+      return 'Error';
   }
 }
 
