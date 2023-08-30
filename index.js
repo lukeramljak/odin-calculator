@@ -2,6 +2,7 @@ const display = document.querySelector('#display');
 const container = document.querySelector('#container');
 const buttons = Array.from(document.getElementsByClassName('btn'));
 let equation = '';
+const operators = '+-*/';
 
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -26,8 +27,6 @@ buttons.forEach(btn => {
 });
 
 function splitEquation(str) {
-  const operators = '+-*/';
-
   for (let i = 0; i < str.length; i++) {
     if (operators.includes(str[i])) {
       const num1 = str.slice(0, i).trim();
