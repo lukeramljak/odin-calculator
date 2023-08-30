@@ -15,7 +15,8 @@ buttons.forEach(btn => {
         display.textContent = newDisplay;
         break;
       case '=':
-        let sum = splitEquation(equation);
+        const [num1, operator, num2] = splitEquation(equation);
+        const sum = operate(num1, operator, num2);
         display.textContent = sum;
         equation = '';
         break;
@@ -33,8 +34,7 @@ function splitEquation(str) {
       const operator = str[i];
       const num2 = str.slice(i + 1).trim();
 
-      const result = operate(num1, operator, num2);
-      return result;
+      return [num1, operator, num2];
     }
   }
 
