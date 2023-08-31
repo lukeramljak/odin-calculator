@@ -15,6 +15,7 @@ const currentOperationScreen = document.getElementById('currentOperationScreen')
 clearButton.addEventListener('click', clear);
 deleteButton.addEventListener('click', deleteNumber);
 decimalButton.addEventListener('click', appendDecimal);
+equalsButton.addEventListener('click', evaluate);
 
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => appendNumber(button.textContent));
@@ -30,6 +31,9 @@ function appendNumber(number) {
 }
 
 function appendDecimal() {
+  if (shouldResetScreen) resetScreen();
+  if (currentOperationScreen.textContent === '')
+    currentOperationScreen.textContent = '0';
   if (currentOperationScreen.textContent.includes('.')) return;
   currentOperationScreen.textContent += '.';
 }
@@ -58,6 +62,17 @@ function setOperation(operator) {
   currentOperation = operator;
   lastOperationScreen.textContent = `${firstOperand} ${currentOperation}`;
   shouldResetScreen = true;
+}
+
+function evaluate() {
+  if (currentOperation === null || shouldResetScreen) return;
+  if (currentOperation === '÷' && currentOperationScreen.textContent === '0') {
+    alert('Nice try, buddy.');
+    return;
+  }
+  secondOperand = currentOperationScreen.textContent;
+  currentOperationScreen.textContent = operate(currentOperation, firstOperand, secondOperand);
+  lastOperationScreen.textContent = `${firstOperand} ${currentOperation} ${secondOperand} =`;
 }
 
 function operate(operator, a, b) {
