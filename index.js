@@ -111,7 +111,7 @@ function operate(operator, a, b) {
     case '×':
       return a * b;
     case '÷':
-      if (num2 == 0) return null;
+      if (b == 0) return null;
       else return a / b;
     default:
       return null;
