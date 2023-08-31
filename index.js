@@ -13,6 +13,7 @@ const currentOperationScreen = document.getElementById('currentOperationScreen')
 
 clearButton.addEventListener('click', clear);
 deleteButton.addEventListener('click', deleteNumber);
+decimalButton.addEventListener('click', appendDecimal);
 
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => appendNumber(button.textContent));
@@ -20,6 +21,11 @@ numberButtons.forEach((button) => {
 
 function appendNumber(number) {
   currentOperationScreen.textContent += number;
+}
+
+function appendDecimal() {
+  if (currentOperationScreen.textContent.includes('.')) return;
+  currentOperationScreen.textContent += '.';
 }
 
 function clear() {
