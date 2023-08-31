@@ -59,6 +59,9 @@ function operate(num1, operator, num2) {
     case '*':
       return num1 * num2;
     case '/':
+      if (num2 == 0) {
+        return 'Nice try, buddy';
+      }
       return num1 / num2;
     default:
       return 'Error';
