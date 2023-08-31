@@ -12,6 +12,11 @@ button {
     font: inherit;
 }
 
+body {
+    background-color: #1c2232;
+    font-size: 3rem;
+}
+
 main {
     display: grid;
     place-content: center;
@@ -22,18 +27,21 @@ main {
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    border: 1px solid red;
+    border-radius: 10px;
+    background-color: #dedede;
+    border: 3px solid #8a8a8a;
 }
 
 .screen {
     display: flex;
     justify-content: flex-end;
+    margin: 1rem 0;
 }
 
 .buttons-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
+    gap: 0.5rem;
 }
 
 .span-2 {
