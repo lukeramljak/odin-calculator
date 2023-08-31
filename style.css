@@ -26,7 +26,7 @@ main {
 .calculator {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 10px;
     background-color: #dedede;
     border: 3px solid #8a8a8a;
@@ -34,8 +34,21 @@ main {
 
 .screen {
     display: flex;
-    justify-content: flex-end;
-    margin: 1rem 0;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+    border: 2px solid #8a8a8a;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.screen-last {
+    min-height: 2rem;
+    font-size: 1.25rem;
+}
+
+.screen-current {
+    min-height: 4rem;
 }
 
 .buttons-grid {
