@@ -1,6 +1,7 @@
 let firstOperand = '';
 let secondOperand = '';
 let currentOperation = null;
+let shouldResetScreen = false;
 
 const numberButtons = document.querySelectorAll('[data-number]');
 const operatorButtons = document.querySelectorAll('[data-operator]');
@@ -19,7 +20,12 @@ numberButtons.forEach((button) => {
   button.addEventListener('click', () => appendNumber(button.textContent));
 });
 
+operatorButtons.forEach((button) => {
+  button.addEventListener('click', () => setOperation(button.textContent));
+});
+
 function appendNumber(number) {
+  if (currentOperationScreen.textContent === '0' || shouldResetScreen) resetScreen();
   currentOperationScreen.textContent += number;
 }
 
@@ -28,18 +34,30 @@ function appendDecimal() {
   currentOperationScreen.textContent += '.';
 }
 
+function resetScreen() {
+  currentOperationScreen.textContent = '';
+  shouldResetScreen = false;
+}
+
 function clear() {
   currentOperationScreen.textContent = '0';
   lastOperationScreen.textContent = '';
   firstOperand = '';
   secondOperand = '';
-  currentOperation = '';
+  currentOperation = null;
 }
 
 function deleteNumber() {
   currentOperationScreen.textContent = currentOperationScreen.textContent
     .toString()
     .slice(0, -1);
+}
+
+function setOperation(operator) {
+  firstOperand = currentOperationScreen.textContent;
+  currentOperation = operator;
+  lastOperationScreen.textContent = `${firstOperand} ${currentOperation}`;
+  shouldResetScreen = true;
 }
 
 function operate(operator, a, b) {
