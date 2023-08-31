@@ -11,6 +11,13 @@ const decimalButton = document.getElementById('decimalBtn');
 const lastOperationScreen = document.getElementById('lastOperationScreen');
 const currentOperationScreen = document.getElementById('currentOperationScreen');
 
+numberButtons.forEach((button) => {
+  button.addEventListener('click', () => appendNumber(button.textContent));
+});
+
+function appendNumber(number) {
+  currentOperationScreen.textContent += number;
+}
 
 function operate(operator, a, b) {
   a = Number(a);
