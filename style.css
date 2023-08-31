@@ -11,3 +11,31 @@
 button {
     font: inherit;
 }
+
+main {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px solid red;
+}
+
+.screen {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.span-2 {
+    grid-column: span 2;
+}
