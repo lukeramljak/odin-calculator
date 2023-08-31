@@ -12,6 +12,7 @@ const decimalButton = document.getElementById('decimalBtn');
 const lastOperationScreen = document.getElementById('lastOperationScreen');
 const currentOperationScreen = document.getElementById('currentOperationScreen');
 
+window.addEventListener('keydown', handleKbInput);
 clearButton.addEventListener('click', clear);
 deleteButton.addEventListener('click', deleteNumber);
 decimalButton.addEventListener('click', appendDecimal);
@@ -79,6 +80,23 @@ function evaluate() {
 
 function roundResult(number) {
   return Math.round(number * 1000) / 1000;
+}
+
+function handleKbInput(e) {
+  if (e.key >= 0 && e.key <= 9) appendNumber(e.key);
+  if (e.key === '.') appendDecimal();
+  if (e.key === '=' || e.key === 'Enter') evaluate();
+  if (e.key === 'Backspace') deleteNumber();
+  if (e.key === 'Escape') clear();
+  if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/')
+    setOperation(convertOperator(e.key));
+}
+
+function convertOperator(kbOperator) {
+  if (kbOperator === '/') return '÷';
+  if (kbOperator === '*') return '×';
+  if (kbOperator === '-') return '-';
+  if (kbOperator === '+') return '+';
 }
 
 function operate(operator, a, b) {
