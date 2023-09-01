@@ -67,8 +67,18 @@ main {
     box-shadow: -2px 2px 0px 0px #000000;
 }
 
+.btn:active {
+    background-color: #e1e1e1;
+    transform: translate(-1px, 1px);
+    box-shadow: -1px 1px;
+}
+
 #deleteBtn {
     background-color: #e9806e;
+}
+
+#deleteBtn:active {
+    background-color: #df7a68;
 }
 
 .span-2 {
