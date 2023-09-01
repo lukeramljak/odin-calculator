@@ -21,9 +21,6 @@ body {
     background-color: #e5cfcb;
     font-size: 1.25rem;
     font-family: 'Open Sans', sans-serif;
-}
-
-main {
     display: grid;
     place-content: center;
 }
