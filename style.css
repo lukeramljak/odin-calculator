@@ -29,6 +29,7 @@ main {
     background-color: #f0f0f0;
     border: 2px solid #000000;
     box-shadow: -6px 6px 0px 0px #000000;
+    max-width: 305px;
 }
 
 .screen {
@@ -48,6 +49,7 @@ main {
 }
 
 .screen-current {
+    min-height: 55px;
     font-size: 2.5rem;
 }
 
