@@ -12,6 +12,11 @@ button {
     font: inherit;
 }
 
+html,
+body {
+    height: 100%;
+}
+
 body {
     background-color: #e5cfcb;
     font-size: 1.25rem;
@@ -21,7 +26,6 @@ body {
 main {
     display: grid;
     place-content: center;
-    height: 100vh;
 }
 
 .calculator {
