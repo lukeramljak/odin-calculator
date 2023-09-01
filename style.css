@@ -14,7 +14,7 @@ button {
 
 body {
     background-color: #1c2232;
-    font-size: 3rem;
+    font-size: 1.25rem;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -37,10 +37,11 @@ main {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: center;
     margin-bottom: 1rem;
     border: 2px solid #8a8a8a;
     border-radius: 10px;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
 }
 
 .screen-last {
@@ -50,12 +51,19 @@ main {
 
 .screen-current {
     min-height: 4rem;
+    font-size: 2.5rem;
 }
 
 .buttons-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0.5rem;
+}
+
+.btn {
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
 }
 
 .span-2 {
