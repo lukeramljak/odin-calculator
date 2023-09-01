@@ -27,7 +27,7 @@ main {
 .calculator {
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: 1rem;
     background-color: #f0f0f0;
     border: 2px solid #000000;
     box-shadow: -6px 6px 0px 0px #000000;
