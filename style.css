@@ -41,16 +41,18 @@ main {
     margin-bottom: 1rem;
     border: 2px solid #000000;
     box-shadow: -2px 2px 0px 0px #000000;
-    padding: 0.5rem 1rem;
+    min-height: 100px;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all
 }
 
 .screen-last {
-    min-height: 2rem;
-    font-size: 1.25rem;
+    min-height: 25px;
+    font-size: 1rem;
 }
 
 .screen-current {
-    min-height: 4rem;
     font-size: 2.5rem;
 }
 
