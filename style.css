@@ -39,8 +39,8 @@ main {
     align-items: flex-end;
     justify-content: center;
     margin-bottom: 1rem;
-    border: 2px solid #8a8a8a;
-    border-radius: 10px;
+    border: 2px solid #000000;
+    box-shadow: -2px 2px 0px 0px #000000;
     padding: 0.5rem 1rem;
 }
 
@@ -63,11 +63,11 @@ main {
 .btn {
     cursor: pointer;
     padding: 1rem 1.5rem;
-    border-radius: 10px;
+    border: 1px solid #000000;
+    box-shadow: -2px 2px 0px 0px #000000;
 }
 
 #deleteBtn {
-    color: #dedede;
     background-color: #e9806e;
 }
 
